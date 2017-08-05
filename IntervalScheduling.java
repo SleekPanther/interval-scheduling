@@ -12,6 +12,7 @@ class Job implements Comparable<Job>{
 		this.name=name;
 	}
 
+	//Compare jobs by finish time
 	@Override
 	public int compareTo(Job job) {
 		return this.finish - job.finish;
@@ -24,13 +25,25 @@ class Job implements Comparable<Job>{
 }
 
 public class IntervalScheduling {
-	
-	
-	
-	public static void findOptimalScheule(Job[] jobs){
-		System.out.println(Arrays.toString(jobs));
-		Arrays.sort(jobs);
-		System.out.println(Arrays.toString(jobs));
+	public static void findOptimalJobScheule(Job[] jobs){
+		System.out.println("Input Jobs: \t" + Arrays.toString(jobs));
+		Arrays.sort(jobs);		//Sort jobs by finish time
+
+		LinkedList<Job> jobsSelected = new LinkedList<Job>();
+		jobsSelected.add(jobs[0]);		//add 1st job
+		Job lastJobAdded = jobs[0];
+
+		for(int i=1; i<jobs.length; i++){
+			if(jobs[i].start >= lastJobAdded.finish){		//check if job is compatible (starts after or at the time time as the last job finishes)
+				jobsSelected.add(jobs[i]);
+				lastJobAdded = jobs[i];		//update for the job that was just added
+			}
+		}
+
+		System.out.println("\nSelected " + jobsSelected.size() + " Jobs: ");
+		for(Job job : jobsSelected){
+			System.out.println(job);
+		}
 	}
 	
 	
@@ -45,6 +58,6 @@ public class IntervalScheduling {
 			new Job(6, 10, "g"),
 			new Job(8, 11, "h"),
 		};
-		IntervalScheduling.findOptimalScheule(jobs);
+		IntervalScheduling.findOptimalJobScheule(jobs);
 	}
 }
