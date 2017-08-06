@@ -1,6 +1,26 @@
 # Interval Scheduling
 Greedy Algorithm to find the **maximum number** of mutually compatible jobs
 
+## Problem Statement
+- Job j starts at s(j) and finishes at f(j)
+- 2 jobs are said to be compatible if they do not overlap
+- Example: 8 jobs {a, b, c, d, e, f, g, h}
+- **Goal: find the maximum number of mutually compatible jobs**
+
+![](images/all-jobs.png)
+
+### Optimal = {b, e, h}
+![](images/optimal-jobs.png)
+
+## Algorithm
+**Consider jobs in ascending order of finish time f(j)**
+
+### Sorted Jobs
+![](images/sorted-jobs.png)
+
+### Pseudocode
+![](images/pseudocode.png)
+
 ## Runtime
 Sorting O(n log(n)) + for-loop Θ(n)  
 **O(n log(n))**
