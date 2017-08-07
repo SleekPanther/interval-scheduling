@@ -3,9 +3,9 @@ Greedy Algorithm to find the **maximum number** of mutually compatible jobs
 
 ## Problem Statement
 - Job j starts at s(j) and finishes at f(j)
-- 2 jobs are said to be compatible if they do not overlap
-- Example: 8 jobs {a, b, c, d, e, f, g, h}
+- 2 jobs are **compatible** if they do not overlap (2nd job starts after or at the same time as the 1st one finishes)
 - **Goal: find the maximum number of mutually compatible jobs**
+- Example: 8 jobs {a, b, c, d, e, f, g, h}
 
 ![](images/all-jobs.png)
 
